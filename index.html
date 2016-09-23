@@ -1,1 +1,50 @@
-<h1> HELLO WORLD </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Events</title>
+</head>
+<body ng-app="ishaEvents">
+    <div class="navbar navbar-default navbar-static-top container" role="navigation">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">Isha Events</div>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="col-sm-3 col-md-3 pull-right">
+        <form class="navbar-form" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search by zipcode..." name="srchzip" id="srchzip">
+            <div class="input-group-btn">
+                <button onclick="renderEvents($('#srchzip').val())" class="btn btn-success" type="button"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="container" class="container">
+      <div id="event_list" class="row placeholders">
+      </div>
+    </div> <!-- /container -->
+
+   <!-- Bootstrap core JavaScript-->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src=""></script>
+</body>
+</html>

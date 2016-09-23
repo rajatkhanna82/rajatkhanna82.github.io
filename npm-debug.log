@@ -1,0 +1,59 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   'angular',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.4
+4 verbose install initial load of /Users/rkhanna/isha/rajatkhanna82.github.io/package.json
+5 warn package.json isha-envents@1.0.0 No description
+6 verbose readDependencies loading dependencies from /Users/rkhanna/isha/rajatkhanna82.github.io/package.json
+7 silly cache add args [ 'angular', null ]
+8 verbose cache add spec angular
+9 silly cache add parsed spec Result {
+9 silly cache add   raw: 'angular',
+9 silly cache add   scope: null,
+9 silly cache add   name: 'angular',
+9 silly cache add   rawSpec: '',
+9 silly cache add   spec: 'latest',
+9 silly cache add   type: 'tag' }
+10 silly addNamed angular@latest
+11 verbose addNamed "latest" is being treated as a dist-tag for angular
+12 info addNameTag [ 'angular', 'latest' ]
+13 silly mapToRegistry name angular
+14 silly mapToRegistry using default registry
+15 silly mapToRegistry registry https://npm-mirror.surfcrew.com/
+16 silly mapToRegistry uri https://npm-mirror.surfcrew.com/angular
+17 verbose addNameTag registry:https://npm-mirror.surfcrew.com/angular not in flight; fetching
+18 verbose request uri https://npm-mirror.surfcrew.com/angular
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 9:35:13 PM
+21 verbose request id 01841d9416651061
+22 http request GET https://npm-mirror.surfcrew.com/angular
+23 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 52.8.55.29:443
+24 info attempt registry request try #2 at 9:36:39 PM
+25 http request GET https://npm-mirror.surfcrew.com/angular
+26 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 52.8.55.29:443
+27 info attempt registry request try #3 at 9:38:55 PM
+28 http request GET https://npm-mirror.surfcrew.com/angular
+29 verbose stack Error: connect ETIMEDOUT 52.8.55.29:443
+29 verbose stack     at Object.exports._errnoException (util.js:870:11)
+29 verbose stack     at exports._exceptionWithHostPort (util.js:893:20)
+29 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1063:14)
+30 verbose cwd /Users/rkhanna/isha/rajatkhanna82.github.io
+31 error Darwin 15.6.0
+32 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "i" "angular" "--save"
+33 error node v4.2.4
+34 error npm  v2.14.12
+35 error code ETIMEDOUT
+36 error errno ETIMEDOUT
+37 error syscall connect
+38 error network connect ETIMEDOUT 52.8.55.29:443
+38 error network This is most likely not a problem with npm itself
+38 error network and is related to network connectivity.
+38 error network In most cases you are behind a proxy or have bad network settings.
+38 error network
+38 error network If you are behind a proxy, please make sure that the
+38 error network 'proxy' config is set properly.  See: 'npm help config'
+39 verbose exit [ 1, true ]
