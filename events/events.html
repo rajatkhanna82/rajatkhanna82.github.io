@@ -12,9 +12,14 @@
         <div class="col-sm-3 col-md-3 pull-right">
         <form class="navbar-form" role="search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search by zipcode..." name="srchzip" id="srchzip">
+            <input type="text" class="form-control"
+              placeholder="Search by zipcode..."
+              name="srchzip" id="srchzip"
+              ng-model="events.zipcode"/>
             <div class="input-group-btn">
-                <button onclick="renderEvents($('#srchzip').val())" class="btn btn-success" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                <button  class="btn btn-success" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
             </div>
           </div>
         </form>

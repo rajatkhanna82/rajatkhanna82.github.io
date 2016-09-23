@@ -4,9 +4,15 @@ function EventsController (getEvents, getZipcode) {
     var self = this;
 
     self.events = {};
-    getZipcode();
+    self.zipcode = ''
+    getZipcode.then(function(zipcode){
+        self.zipcode = zipcode;
+    });
     getEvents.get().then(function (data) {
         console.log(data);
+    })
+    .catch(function (res) {
+        console.log("error :", res);
     });
 
 }
@@ -37,13 +43,18 @@ angular.module('ishaEvents' )
             }
         };
     })
-    .service('getZipcode', function ($http) {
-        return function () {
-            window.navigator.geolocation.getCurrentPosition(function(pos){
-              console.log(pos);
-              return $http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+pos.coords.latitude+','+pos.coords.longitude+'&sensor=true').then(function(res){
-                console.log(res.data);
-              });
-            });
-        };
+    .service('getZipcode', function ($http, $q) {
+        var defer = $q.defer();
+        window.navigator.geolocation.getCurrentPosition(function(pos){
+          console.log(pos);
+          $http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='
+                +pos.coords.latitude+','
+                +pos.coords.longitude+
+                '&sensor=true')
+                .then(function (res) {
+                    var zipcode = res.data.results[0].address_components[7].short_name;
+                    defer.resolve(zipcode);
+                });
+        });
+        return defer.promise;
     });
