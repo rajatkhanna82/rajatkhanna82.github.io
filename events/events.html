@@ -30,10 +30,11 @@
 
     <div id="container" class="container">
       <div id="event_list" class="row placeholders">
+            <div ng-show="filtered.length === 0"> No Events</div>
             <div style="height:auto !important"
                 class="panel panel-default col-sm-5"
                 ng-class-even="'col-sm-offset-1'"
-                ng-repeat="e in events.events | filter: events.search track by $index">
+                ng-repeat="e in events.events | filter: events.search as filtered track by $index">
                <a title="Get detailed Program Information" href="/en/component/program/?task=details&amp;program_id=11210">
                   <div class="col-sm-4">
                      <img width="116" height="76"  class="img-thumbnail" src="http://iy-dae.kxcdn.com/components/com_program/images/icon/specialevent.jpg">
