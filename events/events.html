@@ -41,15 +41,14 @@
                   </div>
                   <div class="col-sm-8">
                     <div class="row">
-                         {{e.evtname}}
-                         <em class="hov_date ">{{e.evtStDate | dateFormater | date : 'dd MMM yyyy'}}</em>
+                         <h3>{{e.evtname}}</h3>
+                         <em class="hov_date ">Date: {{e.evtStDate | dateFormater | date : 'dd MMM yyyy'}}</em>
                          <span class="hov_location">
-                            {{e.evtCity +', '+ e.evtState +', '+ e.evtCountry}}
-                         </span>
-		 										 <span><b>Type</b>: {{e.evtType}}, {{e.evtCat}}</span> <br/>
-		 										 <span><b>Hosted by</b>: {{e.evtHost}}</span> <br/>
-                         <br>
-                         <span>{{e.evtDesc}}</span> 
+                            Location: {{e.evtCity +', '+ e.evtState}}
+                         </span> <br/>
+                         <span>Type: {{e.evtType}}, {{e.evtCat}}</span> <br/>
+                         <span>Hosted by: {{e.evtHost}}</span> <br/>
+                         <span>Desc: {{e.evtDesc}}</span> 
                     </div>
                   </div>
                </a>
