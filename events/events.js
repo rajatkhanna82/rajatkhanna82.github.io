@@ -3,10 +3,10 @@
 function EventsController (getEvents, getZipcode) {
     var self = this;
 
-    self.events = {};
-    self.zipcode = ''
+    self.events = events;
+    self.search = {};
     getZipcode.then(function(zipcode){
-        self.zipcode = zipcode;
+        self.search.evtZip = zipcode;
     });
     getEvents.get().then(function (data) {
         console.log(data);
@@ -19,6 +19,11 @@ function EventsController (getEvents, getZipcode) {
 
 angular.module('ishaEvents' )
     .controller('EventsController', EventsController)
+    .filter('dateFormater', function () {
+        return function (input) {
+            return new Date(input);
+        };
+    })
     .factory('getEvents', function ($http) {
         var url = 'https://www.innerengineering.com/ieo/ieoApiRequest.php',
         data = {

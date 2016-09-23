@@ -15,7 +15,7 @@
             <input type="text" class="form-control"
               placeholder="Search by zipcode..."
               name="srchzip" id="srchzip"
-              ng-model="events.zipcode"/>
+              ng-model="events.search.evtZip"/>
             <div class="input-group-btn">
                 <button  class="btn btn-success" type="button">
                   <i class="glyphicon glyphicon-search"></i>
@@ -30,5 +30,26 @@
 
     <div id="container" class="container">
       <div id="event_list" class="row placeholders">
+            <div style="height:auto !important" 
+                class="panel panel-default col-sm-5"
+                ng-class-even="'col-sm-offset-1'"
+                ng-repeat="e in events.events | filter: events.search track by $index">
+               <a title="Get detailed Program Information" href="/en/component/program/?task=details&amp;program_id=11210">
+                  <div class="col-sm-4">
+                     <img width="116" height="76"  class="img-thumbnail" src="http://iy-dae.kxcdn.com/components/com_program/images/icon/specialevent.jpg">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="row">
+                         {{e.evtname}}
+                         <em class="hov_date ">{{e.evtStDate | dateFormater | date : 'dd MMM yyyy'}}</em>
+                         <span class="hov_location">
+                            {{e.evtCity +', '+ e.evtState +', '+ e.evtCountry}}
+                         </span>
+                         <br>
+                         <span>{{e.evtDesc}}</span> 
+                    </div>
+                  </div>
+               </a>
+            </div>
       </div>
     </div> <!-- /container -->
