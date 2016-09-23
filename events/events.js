@@ -1,14 +1,19 @@
 'use strict';
 
-function EventsController (getEvents) {
+function EventsController (getEvents, getZipcode) {
+    var self = this;
 
-    var getEvents = getEvents.get();
+    self.events = {};
+    getZipcode();
+    getEvents.get().then(function (data) {
+        console.log(data);
+    });
 
 }
 
-angular.module('ishaEvents', [])
+angular.module('ishaEvents' )
     .controller('EventsController', EventsController)
-    .service('getEvents', function ($http) {
+    .factory('getEvents', function ($http) {
         var url = 'https://www.innerengineering.com/ieo/ieoApiRequest.php',
         data = {
             apitype : 'EVENTL',
@@ -19,8 +24,26 @@ angular.module('ishaEvents', [])
         };
         return {
             get: function (options) {
-                data = options || data;
-                return $http.post(url, data);
+                // data = options || data;
+                    return  $http({
+                        method: 'post',
+                        url: url,
+                        data: data,
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                             'Access-Control-Allow-Origin': '*'
+                        }
+                    });
             }
-        }
+        };
+    })
+    .service('getZipcode', function ($http) {
+        return function () {
+            window.navigator.geolocation.getCurrentPosition(function(pos){
+              console.log(pos);
+              return $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng='+pos.coords.latitude+','+pos.coords.longitude+'&sensor=true').then(function(res){
+                console.log(res.data);
+              });
+            });
+        };
     });
