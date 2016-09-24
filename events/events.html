@@ -27,22 +27,24 @@
       </div>
     </div>
 
-
+    <!-- BEGIN : /container -->
     <div id="container" class="container">
       <div id="event_list" class="row placeholders">
             <div ng-show="filtered.length === 0"> No Events</div>
-            <div style="height:auto !important"
-                class="panel panel-default col-sm-5"
-                ng-class-even="'col-sm-offset-1'"
+            <div style="height:auto !important;"
+                class="panel panel-default col-sm-6"
                 ng-repeat="e in events.events | filter: events.search as filtered track by $index">
-               <a title="Get detailed Program Information" href="/en/component/program/?task=details&amp;program_id=11210">
+                  <div class="row-center">
+                     <h4>{{e.evtname}}</h4>
+                  </div>
                   <div class="col-sm-4">
-                     <img width="116" height="76"  class="img-thumbnail" src="http://iy-dae.kxcdn.com/components/com_program/images/icon/specialevent.jpg">
+                     <img class="img-thumbnail" src="img/icon/specialevent.jpg">
                   </div>
                   <div class="col-sm-8">
                     <div class="row">
-                         <h3>{{e.evtname}}</h3>
-                         <em class="hov_date ">Date: {{e.evtStDate | dateFormater | date : 'dd MMM yyyy'}}</em>
+                         <span>
+                            Date: <em class="hov_date ">{{e.evtStDate | dateFormater | date : 'dd MMM yyyy'}}</em>
+                         </span><br/>
                          <span class="hov_location">
                             Location: {{e.evtCity +', '+ e.evtState}}
                          </span> <br/>
@@ -51,7 +53,13 @@
                          <span>Desc: {{e.evtDesc}}</span> 
                     </div>
                   </div>
-               </a>
+                  <ul class="nav nav-pills pull-right">                      
+                         <li role="presentation" class="active">             
+                             <a ui-sref="event" class="btn btn-primary" role="button">More »</a>
+                         </li>                                                                   
+                  </ul>   
+            </div>
             </div>
       </div>
-    </div> <!-- /container -->
+    </div> 
+    <!-- END : /container -->
