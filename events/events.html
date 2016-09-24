@@ -28,7 +28,7 @@
     <div id="container" class="container">
       <div id="event_list" class="row placeholders">
             <div ng-show="filtered.length === 0"> No Events</div>
-            <div style="height:auto !important;"
+            <div style="height:auto !important; margin-bottom: 0px !important;"
                 class="panel panel-default col-sm-6"
                 ng-repeat="e in events.events | filter: events.search as filtered track by $index">
                   <div class="row-center">
